@@ -79,6 +79,14 @@
     top: 0;
     z-index: 10;
   }
+  @media (prefers-color-scheme: dark) {
+    nav:not([data-theme="light"]) {
+      background: rgba(26, 33, 43, 0.92);
+    }
+  }
+  nav[data-theme="dark"] {
+    background: rgba(26, 33, 43, 0.92);
+  }
   nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .mark { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; }
   .mark span { color: var(--amber); }
@@ -369,7 +377,7 @@
         <ul>
           <li>Soporte a oficinas y plantas: sistemas operativos, hardware, periféricos, usuarios y permisos; soporte al software contable <strong>Yeminus</strong> (Web y ERP).</li>
           <li>Diseñé y desarrollé aplicaciones internas con <strong>Power Apps</strong>, automatizando procesos con <strong>Power Automate</strong> e integrando con <strong>SharePoint</strong>.</li>
-          <li>Construí <strong>SISC</strong> (requisiciones de compra con flujos de aprobación), el sistema de <strong>planta de asfalto</strong> e <strong>Inventra</strong> (almacén, proveedores y movimientos).</li>
+          <li>Construí <strong>SISC</strong> (requisiciones de compra con flujos de aprobación), el sistema de <strong>planta de asfalto</strong> e <strong>Inventra</strong> (almacén, proveedores y requisiciones).</li>
           <li>Las soluciones desarrolladas reemplazaron procesos manuales y hoy las usan aproximadamente <strong>40 personas</strong> en la empresa.</li>
         </ul>
       </div>
@@ -472,7 +480,7 @@
 <footer>
   <div class="wrap">
     <div class="foot-inner">
-      <h2>¿Hablamos de tu próximo proyecto o vacante?</h2>
+      <h2>Contáctame</h2>
       <div class="contact-row">
         <a class="chip" href="mailto:erikajuliethorozcosanchez@gmail.com">✉ Escríbeme</a>
         <a class="chip" href="https://www.linkedin.com/in/erika-julieth-orozco-sanchez-809a5a2bb" target="_blank" rel="noopener">in LinkedIn</a>
