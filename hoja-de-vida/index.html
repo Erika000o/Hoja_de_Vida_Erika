@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Erika Julieth Orozco Sánchez — Tecnóloga en Desarrollo de Software</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F3EC;
+    --panel: #FFFFFF;
+    --panel-border: #E4DECF;
+    --ink: #1D2126;
+    --ink-soft: #565C64;
+    --amber: #B9791F;
+    --amber-soft: #F1E2C6;
+    --steel: #2B6E8F;
+    --steel-soft: #DCEAF1;
+    --ok: #3F8F5F;
+    --divider: #E4DECF;
+    --radius: 3px;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12171F;
+      --panel: #1A212B;
+      --panel-border: #2A3340;
+      --ink: #ECE9E1;
+      --ink-soft: #96A0AC;
+      --amber: #E3A94A;
+      --amber-soft: #362B18;
+      --steel: #6FB4D8;
+      --steel-soft: #17313E;
+      --ok: #6FCF97;
+      --divider: #2A3340;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12171F;
+    --panel: #1A212B;
+    --panel-border: #2A3340;
+    --ink: #ECE9E1;
+    --ink-soft: #96A0AC;
+    --amber: #E3A94A;
+    --amber-soft: #362B18;
+    --steel: #6FB4D8;
+    --steel-soft: #17313E;
+    --ok: #6FCF97;
+    --divider: #2A3340;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3 { font-family: 'Sora', 'Inter', sans-serif; margin: 0; color: var(--ink); }
+  a { color: inherit; }
+  p { margin: 0; }
+
+  /* ---- NAV ---- */
+  nav {
+    border-bottom: 1px solid var(--divider);
+    padding: 18px 0;
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .mark { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; }
+  .mark span { color: var(--amber); }
+  .navlinks { display: flex; gap: 22px; font-size: 0.88rem; color: var(--ink-soft); flex-wrap: wrap; }
+  .navlinks a { text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s ease, color .15s ease; }
+  .navlinks a:hover { color: var(--amber); border-color: var(--amber); }
+
+  /* ---- HERO ---- */
+  header.hero { padding: 64px 0 48px; }
+  .loc-tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 0.82rem; color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+  .loc-tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent); }
+  h1.name {
+    font-size: clamp(2.3rem, 6vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+  }
+  .role {
+    margin-top: 14px;
+    font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+    color: var(--steel);
+    font-weight: 600;
+    max-width: 620px;
+  }
+  .lede {
+    margin-top: 22px;
+    max-width: 620px;
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+  }
+  .contact-row {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    border: 1px solid var(--panel-border);
+    background: var(--panel);
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    font-size: 0.86rem;
+    text-decoration: none;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .chip:hover { border-color: var(--amber); transform: translateY(-1px); }
+
+  /* ---- SECTION SCAFFOLD ---- */
+  section { padding: 46px 0; border-top: 1px solid var(--divider); }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 28px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: 1.5rem; font-weight: 700; }
+  .sec-note { font-size: 0.86rem; color: var(--ink-soft); max-width: 320px; text-align: right; }
+
+  /* ---- SYSTEMS DASHBOARD ---- */
+  .sys-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--panel-border);
+    border: 1px solid var(--panel-border);
+  }
+  .sys-card {
+    background: var(--panel);
+    padding: 18px 16px;
+    min-height: 118px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .sys-top { display: flex; align-items: center; justify-content: space-between; }
+  .sys-id { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.95rem; }
+  .sys-status { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); flex-shrink: 0; }
+  .sys-desc { font-size: 0.82rem; color: var(--ink-soft); margin-top: 10px; }
+  .sys-more { grid-column: span 4; background: var(--panel); padding: 14px 16px; font-size: 0.84rem; color: var(--ink-soft); font-style: italic; }
+
+  /* ---- EXPERIENCE ---- */
+  .job { display: grid; grid-template-columns: 160px 1fr; gap: 26px; padding: 26px 0; }
+  .job + .job { border-top: 1px solid var(--divider); }
+  .job-when { font-size: 0.82rem; color: var(--ink-soft); padding-top: 3px; }
+  .job-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.12rem; }
+  .job-org { color: var(--steel); font-weight: 600; font-size: 0.94rem; margin-top: 3px; }
+  .job ul { margin: 14px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 0.92rem; }
+  .job li { margin-bottom: 8px; }
+  .job li:last-child { margin-bottom: 0; }
+  .job li strong { color: var(--ink); font-weight: 600; }
+  .badge {
+    display: inline-block; margin-top: 8px;
+    font-size: 0.72rem; font-weight: 600;
+    background: var(--amber-soft); color: var(--amber);
+    padding: 3px 9px; border-radius: var(--radius);
+  }
+
+  /* ---- SKILLS ---- */
+  .skill-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 40px; }
+  .skill-group h3 { font-size: 0.8rem; text-transform: none; color: var(--ink-soft); font-weight: 600; margin-bottom: 10px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tag {
+    font-size: 0.82rem;
+    padding: 5px 11px;
+    border-radius: var(--radius);
+    background: var(--steel-soft);
+    color: var(--steel);
+    border: 1px solid transparent;
+  }
+  .tag.alt { background: var(--amber-soft); color: var(--amber); }
+
+  /* ---- THREE COLUMN (education/certs/lang) ---- */
+  .tri { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .tri h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; }
+  .tri-item { margin-bottom: 14px; }
+  .tri-item:last-child { margin-bottom: 0; }
+  .tri-item .t1 { font-size: 0.92rem; font-weight: 600; }
+  .tri-item .t2 { font-size: 0.82rem; color: var(--ink-soft); margin-top: 2px; }
+  .lang-bar { margin-top: 6px; height: 5px; background: var(--divider); border-radius: 3px; overflow: hidden; }
+  .lang-bar span { display: block; height: 100%; background: var(--steel); }
+
+  /* ---- FOOTER ---- */
+  footer { padding: 44px 0 60px; }
+  .foot-inner { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; }
+  .foot-inner h2 { font-size: 1.6rem; max-width: 380px; }
+  footer .contact-row { margin-top: 0; }
+
+  @media (max-width: 720px) {
+    .sys-grid { grid-template-columns: repeat(2, 1fr); }
+    .sys-more { grid-column: span 2; }
+    .job { grid-template-columns: 1fr; gap: 6px; }
+    .skill-groups { grid-template-columns: 1fr; }
+    .tri { grid-template-columns: 1fr; }
+    .sec-note { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="mark">Erika<span>·</span>Orozco</div>
+    <div class="navlinks">
+      <a href="#sistemas">Sistemas</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#formacion">Formación</a>
+      <a href="mailto:erikajuliethorozcosanchez@gmail.com">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="loc-tag"><span class="dot"></span> Bucaramanga, Santander, Colombia</div>
+    <h1 class="name">Erika Julieth<br>Orozco Sánchez</h1>
+    <p class="role">Tecnóloga en Desarrollo de Software — aplicaciones empresariales y soporte técnico</p>
+    <p class="lede">
+      Desarrollo soluciones empresariales y doy soporte técnico especializado en entornos multiempresa,
+      con automatización mediante Power Apps, Power Automate y FileMaker. Actualmente superviso y doy soporte
+      a más de 10 empresas de forma simultánea, y uso IA (Claude, ChatGPT, Gemini) para automatizar procesos,
+      generar código y analizar datos.
+    </p>
+    <div class="contact-row">
+      <a class="chip" href="mailto:erikajuliethorozcosanchez@gmail.com">✉ erikajuliethorozcosanchez@gmail.com</a>
+      <a class="chip" href="tel:+573175675074">☎ 317 567 5074</a>
+      <a class="chip" href="https://www.linkedin.com/in/erika-julieth-orozco-sanchez-809a5a2bb" target="_blank" rel="noopener">in LinkedIn</a>
+      <a class="chip" href="https://github.com/Erika000o" target="_blank" rel="noopener">⌥ GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="sistemas">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Sistemas que superviso</h2>
+      <p class="sec-note">Soporte y desarrollo activo sobre sistemas empresariales de distintas áreas de operación.</p>
+    </div>
+    <div class="sys-grid">
+      <div class="sys-card"><div class="sys-top"><span class="sys-id">SAT</span><span class="sys-status"></span></div><p class="sys-desc">Contabilidad: comprobantes, cuentas, saldos y reportes.</p></div>
+      <div class="sys-card"><div class="sys-top"><span class="sys-id">SICOT</span><span class="sys-status"></span></div><p class="sys-desc">Despachos, remisiones y facturación.</p></div>
+      <div class="sys-card"><div class="sys-top"><span class="sys-id">TUT</span><span class="sys-status"></span></div><p class="sys-desc">Inventarios, bodegas y requisiciones.</p></div>
+      <div class="sys-card"><div class="sys-top"><span class="sys-id">EMIT</span><span class="sys-status"></span></div><p class="sys-desc">Operación de báscula y pesaje de vehículos.</p></div>
+      <div class="sys-card"><div class="sys-top"><span class="sys-id">MSI</span><span class="sys-status"></span></div><p class="sys-desc">Preoperacionales y mantenimiento de equipos.</p></div>
+      <div class="sys-card"><div class="sys-top"><span class="sys-id">Fianzacrédito</span><span class="sys-status"></span></div><p class="sys-desc">Estudios, fianzas y cartera.</p></div>
+      <div class="sys-card"><div class="sys-top"><span class="sys-id">SAI</span><span class="sys-status"></span></div><p class="sys-desc">Sistema avícola: galpones y producción.</p></div>
+      <div class="sys-card"><div class="sys-top"><span class="sys-id">IRIS</span><span class="sys-status"></span></div><p class="sys-desc">Nómina.</p></div>
+      <div class="sys-more">Entre otros — más de 10 empresas atendidas de forma simultánea, con bases de datos gestionadas en DBeaver.</div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="sec-head"><h2>Experiencia laboral</h2></div>
+
+    <div class="job">
+      <div class="job-when">Ene 2026 — Actualidad</div>
+      <div>
+        <div class="job-title">Soporte de Aplicaciones</div>
+        <div class="job-org">Sodeker · Girón, Santander</div>
+        <span class="badge">Líder de soporte desde agosto 2025</span>
+        <ul>
+          <li>Brindo soporte y desarrollo a <strong>más de 10 empresas</strong> de forma simultánea, sobre sistemas FileMaker y web, trabajando bajo presión en entornos multiempresa.</li>
+          <li>Gestiono bases de datos con <strong>DBeaver</strong> para diagnóstico, consultas y resolución de incidencias.</li>
+          <li>Reviso, diagnostico y doy soporte a scripts y flujos de FileMaker de los sistemas del panel anterior.</li>
+          <li>Coordino el equipo de soporte como responsabilidad adicional desde agosto de 2025.</li>
+          <li>Uso IA (<strong>Claude, ChatGPT, Gemini</strong>) para automatizar soporte, generar código y analizar datos; gestiono seguimiento de tickets y proyectos en <strong>JIRA</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-when">Feb 2025 — Ene 2026</div>
+      <div>
+        <div class="job-title">Auxiliar de Soporte y Desarrolladora de Aplicaciones Empresariales</div>
+        <div class="job-org">Grupo Empresarial Agregados Éxito S.A.S. · Caicedonia</div>
+        <ul>
+          <li>Soporte a oficinas y plantas: sistemas operativos, hardware, periféricos, usuarios y permisos; soporte al software contable <strong>Yeminus</strong> (Web y ERP).</li>
+          <li>Diseñé y desarrollé aplicaciones internas con <strong>Power Apps</strong>, automatizando procesos con <strong>Power Automate</strong> e integrando con <strong>SharePoint</strong>.</li>
+          <li>Construí <strong>SISC</strong> (requisiciones de compra con flujos de aprobación), el sistema de <strong>planta de asfalto</strong> e <strong>Inventra</strong> (almacén, proveedores y facturas con firmas digitales).</li>
+          <li>Las soluciones desarrolladas reemplazaron procesos manuales y hoy las usan aproximadamente <strong>40 personas</strong> en la empresa.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>Habilidades técnicas</h2></div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Lenguajes &amp; desarrollo web</h3>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">PHP</span>
+          <span class="tag">HTML/CSS</span><span class="tag">Laravel</span><span class="tag">Vue 3</span><span class="tag">Inertia.js</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Low-code &amp; Microsoft</h3>
+        <div class="skill-tags">
+          <span class="tag alt">Power Apps</span><span class="tag alt">Power Automate</span>
+          <span class="tag alt">SharePoint</span><span class="tag alt">Power Platform</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Bases de datos &amp; sistemas</h3>
+        <div class="skill-tags">
+          <span class="tag">FileMaker</span><span class="tag">DBeaver</span><span class="tag">MySQL</span><span class="tag">SharePoint Lists</span><span class="tag">APIs · JSON</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>IA &amp; productividad</h3>
+        <div class="skill-tags">
+          <span class="tag alt">Claude</span><span class="tag alt">ChatGPT</span><span class="tag alt">Gemini</span><span class="tag alt">JIRA</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Metodologías</h3>
+        <div class="skill-tags">
+          <span class="tag">Agile</span><span class="tag">Scrum</span><span class="tag">Análisis de requerimientos</span><span class="tag">QA</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Soporte &amp; infraestructura</h3>
+        <div class="skill-tags">
+          <span class="tag">Sistemas operativos</span><span class="tag">Redes (VPN/VLAN)</span><span class="tag">Microsoft 365</span><span class="tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <div class="tri">
+      <div>
+        <h3>Formación</h3>
+        <div class="tri-item">
+          <div class="t1">Tecnóloga en Desarrollo de Software</div>
+          <div class="t2">Universidad del Valle — Dic 2025</div>
+        </div>
+        <div class="tri-item">
+          <div class="t1">Técnico en Agropecuaria</div>
+          <div class="t2">SENA — Dic 2021</div>
+        </div>
+      </div>
+      <div>
+        <h3>Certificaciones</h3>
+        <div class="tri-item">
+          <div class="t1">Curso de Python</div>
+          <div class="t2">Abril 2025</div>
+        </div>
+        <div class="tri-item">
+          <div class="t1">Curso de React</div>
+          <div class="t2">Abril 2025</div>
+        </div>
+        <div class="tri-item">
+          <div class="t1">SPA con Laravel, Inertia y Vue.js</div>
+          <div class="t2">Septiembre 2025</div>
+        </div>
+      </div>
+      <div>
+        <h3>Idiomas</h3>
+        <div class="tri-item">
+          <div class="t1">Español</div>
+          <div class="t2">Nativo</div>
+          <div class="lang-bar"><span style="width:100%"></span></div>
+        </div>
+        <div class="tri-item">
+          <div class="t1">Inglés</div>
+          <div class="t2">A2</div>
+          <div class="lang-bar"><span style="width:32%"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <h2>¿Hablamos de tu próximo proyecto o vacante?</h2>
+      <div class="contact-row">
+        <a class="chip" href="mailto:erikajuliethorozcosanchez@gmail.com">✉ Escríbeme</a>
+        <a class="chip" href="https://www.linkedin.com/in/erika-julieth-orozco-sanchez-809a5a2bb" target="_blank" rel="noopener">in LinkedIn</a>
+        <a class="chip" href="https://github.com/Erika000o" target="_blank" rel="noopener">⌥ GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
